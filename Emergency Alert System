@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Emergency Alert System</title>
+
+    <style>
+
+        body {
+            font-family: Arial;
+            background: #f2f2f2;
+            text-align: center;
+        }
+
+        .container {
+            width: 500px;
+            margin: 50px auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+        }
+
+        input, select {
+            width: 90%;
+            padding: 12px;
+            margin: 10px;
+        }
+
+        button {
+            padding: 12px 25px;
+            margin: 10px;
+            cursor: pointer;
+        }
+
+        #alert {
+            margin-top: 20px;
+            padding: 15px;
+            font-weight: bold;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>🚨 Emergency Alert System</h1>
+
+    <input type="text"
+           id="name"
+           placeholder="Enter your name">
+
+    <input type="text"
+           id="location"
+           placeholder="Enter your location">
+
+    <select id="type">
+
+        <option value="Medical Emergency">
+            Medical Emergency
+        </option>
+
+        <option value="Accident">
+            Accident
+        </option>
+
+        <option value="Fire">
+            Fire
+        </option>
+
+        <option value="Other">
+            Other
+        </option>
+
+    </select>
+
+    <br>
+
+    <button onclick="sendAlert()">
+        🚨 Send Alert
+    </button>
+
+    <button onclick="clearAlert()">
+        Clear
+    </button>
+
+    <div id="alert"></div>
+
+</div>
+
+<script>
+
+function sendAlert() {
+
+    let name =
+        document.getElementById("name").value;
+
+    let location =
+        document.getElementById("location").value;
+
+    let type =
+        document.getElementById("type").value;
+
+    if (name === "" || location === "") {
+
+        alert("Please enter your name and location.");
+
+        return;
+    }
+
+    document.getElementById("alert").innerHTML =
+
+        "🚨 EMERGENCY ALERT 🚨<br><br>" +
+
+        "Name: " + name + "<br>" +
+
+        "Location: " + location + "<br>" +
+
+        "Emergency Type: " + type + "<br><br>" +
+
+        "Alert created successfully.";
+
+}
+
+
+function clearAlert() {
+
+    document.getElementById("alert").innerHTML = "";
+
+    document.getElementById("name").value = "";
+
+    document.getElementById("location").value = "";
+
+}
+
+</script>
+
+</body>
+
+</html>
